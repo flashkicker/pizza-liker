@@ -71,13 +71,13 @@ const App = () => {
 			}
 
 			getAllUserData()
-
-			return () => {
-				setUsernames([])
-				setSeriesData([])
-			}
 		} catch (e) {
 			alert("There was en error while fetching user data")
+		}
+
+		return () => {
+			setUsernames([])
+			setSeriesData([])
 		}
 	}, [])
 
