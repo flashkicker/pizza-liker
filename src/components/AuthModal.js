@@ -38,7 +38,12 @@ const AuthModal = ({ type, onClose, visible, handleLogin }) => {
 	}
 
 	return (
-		<Modal onClose={handleModalClose} open={visible} size="tiny">
+		<Modal
+			onClose={handleModalClose}
+			open={visible}
+			size="tiny"
+			data-testid="auth-modal"
+		>
 			<Modal.Header>{type === "signup" ? "Sign Up" : "Sign In"}</Modal.Header>
 			<Modal.Content>
 				<Form>
@@ -57,8 +62,8 @@ const AuthModal = ({ type, onClose, visible, handleLogin }) => {
 							placeholder="Enter your password here..."
 							name="password"
 							value={state.password}
-                            onChange={handleChange}
-                            type="password"
+							onChange={handleChange}
+							type="password"
 						/>
 					</Form.Field>
 				</Form>
@@ -70,6 +75,7 @@ const AuthModal = ({ type, onClose, visible, handleLogin }) => {
 					icon="close"
 					onClick={handleModalClose}
 					negative
+					data-testid="close-modal"
 				/>
 				<Button
 					content={type === "signup" ? "Confirm" : "Sign In"}
@@ -77,6 +83,7 @@ const AuthModal = ({ type, onClose, visible, handleLogin }) => {
 					icon="checkmark"
 					onClick={handleSubmit}
 					positive
+					data-testid="confirm-modal"
 				/>
 			</Modal.Actions>
 		</Modal>

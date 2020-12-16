@@ -25,13 +25,20 @@ export const Header = ({ currentUser, likes, handleLogin, handleLogout }) => {
 			<Menu.Menu position="right">
 				{currentUser.length ? (
 					<>
-						<Menu.Item name="welcome" header as="h3">
+						<Menu.Item name="welcome" header as="h3" data-testid="welcome">
 							{`Welcome, ${currentUser}`}
 						</Menu.Item>
-						<Menu.Item name="likes" header as="h3">
+						<Menu.Item name="likes" header as="h3" data-testid="likes">
 							{`You have ${likes} likes`}
 						</Menu.Item>
-						<Menu.Item name="logout" header as="h3" link onClick={handleLogout}>
+						<Menu.Item
+							name="logout"
+							header
+							as="h3"
+							link
+							onClick={handleLogout}
+							data-testid="signout"
+						>
 							<i className="sign-out icon"></i>
 							Signout
 						</Menu.Item>
@@ -44,6 +51,7 @@ export const Header = ({ currentUser, likes, handleLogin, handleLogout }) => {
 							as="h3"
 							link
 							onClick={() => openModal("signup")}
+							data-testid="signup"
 						>
 							<i className="pencil alternative icon"></i>
 							Signup
@@ -54,9 +62,10 @@ export const Header = ({ currentUser, likes, handleLogin, handleLogout }) => {
 							as="h3"
 							link
 							onClick={() => openModal("signin")}
+							data-testid="signin"
 						>
 							<i className="sign-in icon"></i>
-							Sign In
+							Signin
 						</Menu.Item>
 					</>
 				)}
